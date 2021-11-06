@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,7 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UnderFoot.Models.DataAccess;
+using UnderFoot.DataAccess;
 
 namespace UnderFoot
 {
@@ -27,6 +28,11 @@ namespace UnderFoot
             {
                 options.UseSqlServer(configuration["ConnectionStrings:UnderFootConnString"]);
             });
+
+            services.AddIdentity<AppUser, IdentityRole>()
+                .AddEntityFrameworkStores<UnderFootDBContext>();
+
+
             services.AddControllersWithViews();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -36,6 +42,7 @@ namespace UnderFoot
             {
                 app.UseDeveloperExceptionPage();
             }
+
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseRouting();
