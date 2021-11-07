@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+<a asp-action="Register" asp-controller="Home">Üye Ol</a>
+<div id="modalLogin">
+
+</div>
+<button id="btnLogin">LogIn</button>
+
+@section scripts {
+
+    <script>
+        $('#btnLogin').click(() => {
+            $.ajax({
+                url: "http://localhost:56633/Home/LogIn",
+                type: 'GET',
+                success: function (res) {
+                    let modalLogin = $('#modalLogin');
+                    console.log(modalLogin.children().length);
+                    if (modalLogin.children().length === 0) {
+                        $('#modalLogin').append(res);
+                    }
+
+                }
+            });
+        });
+
+
+    </script>
+
+}

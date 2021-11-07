@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace UnderFoot.DataAccess.Mappings
 {
-    public class ProductMap : IEntityTypeConfiguration<Products>
+    public class ProductMap : IEntityTypeConfiguration<Product>
     {
-        public void Configure(EntityTypeBuilder<Products> builder)
+        public void Configure(EntityTypeBuilder<Product> builder)
         {
 
             builder.HasKey(x => x.ProductID);

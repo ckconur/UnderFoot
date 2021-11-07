@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UnderFoot.CustomValidations;
 using UnderFoot.DataAccess;
 
 namespace UnderFoot
@@ -29,8 +30,33 @@ namespace UnderFoot
                 options.UseSqlServer(configuration["ConnectionStrings:UnderFootConnString"]);
             });
 
-            services.AddIdentity<AppUser, IdentityRole>()
+            services.AddIdentity<AppUser, AppRole>(options =>
+            {
+                options.Password.RequiredLength = 8;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireDigit = false;
+            })
+                .AddPasswordValidator<CustomPasswordValidator>()
+                .AddErrorDescriber<CustomIdentityErrorDescriber>()
                 .AddEntityFrameworkStores<UnderFootDBContext>();
+
+            CookieBuilder cookieBuilder = new CookieBuilder()
+            {
+                Name = "UnderFoot",
+                HttpOnly = false,
+                SameSite = SameSiteMode.Lax, 
+                SecurePolicy = CookieSecurePolicy.SameAsRequest, 
+            };
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = new PathString("/Home/Index");
+                options.Cookie = cookieBuilder;
+                options.ExpireTimeSpan = TimeSpan.FromDays(60);
+                options.SlidingExpiration = true; 
+            });
 
 
             services.AddControllersWithViews();
@@ -48,13 +74,11 @@ namespace UnderFoot
             app.UseRouting();
 
             app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }

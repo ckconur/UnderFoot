@@ -8,6 +8,11 @@ namespace UnderFoot.DataAccess
 {
     public class AppUser:IdentityUser
     {
-        
+        public AppUser()
+        {
+            CartDetails = new HashSet<CartDetail>();
+        }
+
+        public ICollection<CartDetail> CartDetails { get; set; }
     }
 }
