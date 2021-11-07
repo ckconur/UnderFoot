@@ -97,14 +97,19 @@
     </div>
 </section>
 
-@*@section scripts {
+@section loginModal {
+    <div class="loginModal" id="loginModal">
+    </div>
+}
 
-    <script>
-        $('#btnLogin').click(() => {
+
+@section alert {
+    @if (TempData["LogError"] != null)
+    {
+        <div class="alert alert-primary" onload="">
+            @TempData["LogError"]
+        </div>
+    }
+}
+
             
-        });
-
-
-    </script>
-
-}*@

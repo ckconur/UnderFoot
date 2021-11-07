@@ -87,6 +87,7 @@ body {
     align-items: center;
     padding: 25px;
     z-index: 9999;
+    box-shadow: 0 5px 5px 0px rgba(10, 174, 204, 0.2);
 }
 
 .login-form {
@@ -118,7 +119,6 @@ header {
         height: fit-content;
         background-color: #333;
         color: white;
-        border-top: 1px solid white;
     }
 
 /* Slider */
@@ -402,6 +402,7 @@ footer {
     .search-input:hover,
     .search-input:focus {
         opacity: 1;
+        border-bottom: 1px solid var(--primary-color);
     }
 /* Display */
 
@@ -441,3 +442,23 @@ hr {
     border: none;
     border-top: 1.5px solid var(--primary-color);
 }
+
+.alert{
+    position: absolute;
+    z-index: 999999;
+    top:20px;
+    left: 40%;
+    padding: 10px 20px;
+    min-height: 40px;
+    height: fit-content;
+    word-break: break-all;
+    width: fit-content;
+    max-width: 350px;
+    font-size: 18px;
+}
+
+.alert-primary{
+    color: white;
+    background-color: var(--warning-color);
+}
+

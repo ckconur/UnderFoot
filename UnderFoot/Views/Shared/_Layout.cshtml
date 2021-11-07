@@ -27,11 +27,10 @@
             </div>
         </div>
 
-        <div class="loginModal" id="loginModal">
-            
-        </div>
+        @RenderSection("loginModal",false)
     </nav>
     <!-- Nav End -->
+    @RenderSection("alert",false)
     <div>
         @RenderBody()
     </div>

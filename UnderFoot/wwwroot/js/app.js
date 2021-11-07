@@ -5,6 +5,10 @@
         .css({
             right: -$('#loginModal').outerWidth(),
         });
+
+    setTimeout(() => {
+        $('.alert').remove();
+    }, 3000);
 });
 
 $('#btnLogin').click(async (e) => {
@@ -78,3 +82,5 @@ function showSlides() {
 
     setTimeout(showSlides, 4000);
 }
+
+

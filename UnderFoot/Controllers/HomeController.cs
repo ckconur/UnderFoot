@@ -98,7 +98,8 @@ namespace UnderFoot.Controllers
                 }                
             }
 
-            return View();
+            TempData["LogError"] = "Geçersiz email veya şifre girildi.";
+            return RedirectToAction("Index", "Home");
         }
 
         [Authorize]

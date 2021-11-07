@@ -53,6 +53,7 @@ namespace UnderFoot
             services.ConfigureApplicationCookie(options =>
             {
                 options.LoginPath = new PathString("/Home/Index");
+                options.LogoutPath = new PathString("/Home/LogOut");
                 options.Cookie = cookieBuilder;
                 options.ExpireTimeSpan = TimeSpan.FromDays(60);
                 options.SlidingExpiration = true; 
