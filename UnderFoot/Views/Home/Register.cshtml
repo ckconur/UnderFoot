@@ -4,31 +4,26 @@
     ViewData["Title"] = "Register";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h1>Register</h1>
-
-<h4>UserViewModel</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="register-page">
+    <div class="container">
         <form asp-action="Register" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="UserName" class="control-label"></label>
+            <div asp-validation-summary="ModelOnly" class="clr-warning mb-2"></div>
+            <div class="control-group mb-3">
+                <label asp-for="UserName" class="control-label clr-white"></label>
                 <input asp-for="UserName" class="form-control" />
-                <span asp-validation-for="UserName" class="text-danger"></span>
+                <span asp-validation-for="UserName" class="clr-warning"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
+            <div class="control-group mb-3">
+                <label asp-for="Email" class="control-label clr-white"></label>
                 <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+                <span asp-validation-for="Email" class="clr-warning"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
+            <div class="control-group mb-3">
+                <label asp-for="Password" class="control-label clr-white"></label>
                 <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
+                <span asp-validation-for="Password" class="clr-warning"></span>
             </div>
-            <div class="form-group">
+            <div class="control-group">
                 <input type="submit" value="Üye Ol" class="btn btn-primary" />
             </div>
         </form>

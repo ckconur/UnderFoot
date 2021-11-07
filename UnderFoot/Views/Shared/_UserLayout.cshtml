@@ -15,20 +15,20 @@
             <div>
                 <ul class="link-list">
                     <li class="nav-item">
-                        <a class="nav-link">Ana Sayfa</a>
+                        <a class="nav-link" asp-action="Index" asp-controller="User">Ana Sayfa</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link">Sepet</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-action="Register" asp-controller="Home">Üye Ol</a>
+                        <a class="nav-link">Profil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="btnLogin">Giriş Yap</a>
+                        <a class="nav-link" asp-action="LogOut" asp-controller="Home">Çıkış Yap</a>
                     </li>
                 </ul>
             </div>
-        </div>
-
-        <div class="loginModal" id="loginModal">
-            
         </div>
     </nav>
     <!-- Nav End -->
@@ -68,4 +68,4 @@
 </body>
 </html>
 
-@RenderSection("scripts",false)
+@RenderSection("scripts", false)

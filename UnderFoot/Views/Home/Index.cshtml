@@ -4,32 +4,107 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
-<a asp-action="Register" asp-controller="Home">Üye Ol</a>
-<div id="modalLogin">
+<!-- Header -->
+<header>
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="/images/banner1.jpg">
+        </div>
 
-</div>
-<button id="btnLogin">LogIn</button>
+        <div class="mySlides fade">
+            <img src="/images/banner2.jpg">
+        </div>
 
-@section scripts {
+        <div class="mySlides fade">
+            <img src="/images/banner3.jpg">
+        </div>
+    </div>
+
+    <div class="search-area" id="searchArea">
+        <input type="text" class="search-input" placeholder="Arama..." id="headerSearch">
+
+        <div id="filteredSearchArea" class="d-none">
+        </div>
+    </div>
+</header>
+
+
+<!-- Products -->
+<section class="container my-3">
+    <h2 class="clr-primary mb-2">Ürünler</h2>
+    <hr>
+    <div class="products-showcase my-3">
+        <div class="card">
+            <div class="card-header">
+                <img src="https://wallpaperaccess.com/full/4792397.jpg" alt="">
+            </div>
+            <div class="card-body">
+                <h4 class="name">Nike air jordan retro-2</h4>
+            </div>
+            <div class="card-footer">
+                <p class="price mb-2">1300 ₺</p>
+                <button href="" class="btn btn-radial mb-2">Satın al</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img src="https://wallpaperaccess.com/full/4792397.jpg" alt="">
+            </div>
+            <div class="card-body">
+                <h4 class="name">Nike air jordan retro-2</h4>
+            </div>
+            <div class="card-footer">
+                <p class="price mb-2">1300 ₺</p>
+                <button href="" class="btn btn-radial mb-2">Satın al</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img src="https://wallpaperaccess.com/full/4792397.jpg" alt="">
+            </div>
+            <div class="card-body">
+                <h4 class="name">Nike air jordan retro-2</h4>
+            </div>
+            <div class="card-footer">
+                <p class="price mb-2">1300 ₺</p>
+                <button href="" class="btn btn-radial mb-2">Satın al</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img src="https://wallpaperaccess.com/full/4792397.jpg" alt="">
+            </div>
+            <div class="card-body">
+                <h4 class="name">Nike air jordan retro-2</h4>
+            </div>
+            <div class="card-footer">
+                <p class="price mb-2">1300 ₺</p>
+                <button href="" class="btn btn-radial mb-2">Satın al</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <img src="https://wallpaperaccess.com/full/4792397.jpg" alt="">
+            </div>
+            <div class="card-body">
+                <h4 class="name">Nike air jordan retro-2</h4>
+            </div>
+            <div class="card-footer">
+                <p class="price mb-2">1300 ₺</p>
+                <button href="" class="btn btn-radial mb-2">Satın al</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+@*@section scripts {
 
     <script>
         $('#btnLogin').click(() => {
-            $.ajax({
-                url: "http://localhost:56633/Home/LogIn",
-                type: 'GET',
-                success: function (res) {
-                    let modalLogin = $('#modalLogin');
-                    console.log(modalLogin.children().length);
-                    if (modalLogin.children().length === 0) {
-                        $('#modalLogin').append(res);
-                    }
-
-                }
-            });
+            
         });
 
 
     </script>
 
-}
+}*@

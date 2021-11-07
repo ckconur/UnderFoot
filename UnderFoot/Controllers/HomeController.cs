@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -99,7 +100,15 @@ namespace UnderFoot.Controllers
 
             return View();
         }
+
+        [Authorize]
+        public async Task<IActionResult> LogOut()
+        {
+            await signInManager.SignOutAsync();
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 
-    // TODO: Orders oluşturulacak burada Order-User(one-many) arasında bir ilişki kurulacak bir kullanıcının birden fazla siparişi olabilir, OrderDetails tablosu yapılacak burada Order-Product(one-many) bir siparişte birden fazla ürün olabilir, Carts tablosu olacak Cart-Products (one-many) bir sepette birden fazla ürün bulunabilir.
+    
 }
